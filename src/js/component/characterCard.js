@@ -12,31 +12,32 @@ export const CharacterCard = props => {
 
     const { store, actions } = useContext(Context);
 
-    const params = useParams();
+    // console.log(props.id)
+    // const params = useParams();
 
     return (
         <div className="card border p-2" style={{ width: "18rem" }}>
-            <img className="card-img-top" src="..." alt="Cambiar SRC" />
-            <div className="card-body">
-                <h5 className="card-title font-weight-bold">{props.name}</h5>
-                {/* <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
-            </div>
-            <ul className="list-group list-group-flush">
-                <li className="list-group-item">Gender: {props.gender}</li>
-                <li className="list-group-item">Hair Color: {props.hair_color}</li>
-                <li className="list-group-item">Eye-color: {props.eye_color}</li>
-            </ul>
-            <div className="card-body">
-                <button className="border-primary text-primary">
-                    <Link className="btn" to="/single">
-                        Learn more!
-                    </Link>
-                </button>
-                <button className="border-warning">
-                    <i className="fa fa-heart text-warning"></i>
-                </button>
+            <div className="row">
+                <img className="card-img-top img-fluid w-100 mx-1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO5nblTqlj3f5khrzV7hcM6YwJ7gGcG2kShQ&usqp=CAU" alt="Cambiar SRC" />
+                <div className="card-body">
+                    <h5 className="card-title font-weight-bold">{props.name}</h5>
+                    <p className="card-text mb-1">Gender: {props.gender}</p>
+                    <p className="card-text mb-1">Hair Color: {props.hair_color}</p>
+                    <p className="card-text">Eye-color: {props.eye_color}</p>
+                </div>
+                <div className="d-flex justify-content-between mt-0">
+                    <button type="button" className="btn btn-outline-info btn-sm">
+                        <Link className="btn text-info" to={`/single/${props.id}`}>
+                            Learn more!
+                        </Link>
+                    </button>
+                    <button type="button" className="btn btn-outline-warning p-3 btn-sm">
+                        <i className="fa fa-heart text-warning"></i>
+                    </button>
+                </div>
             </div>
         </div>
+
     );
 };
 
