@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
-import { Context } from "../store/appContext";
+import { Context } from "../store/appContext.js";
 import { CharacterDetailsCard } from "../component/characterDetailsCard.js";
 
-export const Single = () => {
+export const SingleCharacter = () => {
 	const { store, actions } = useContext(Context);
 
 	// Creamos un espacio para guardar los params de la ruta creada.
@@ -19,21 +19,17 @@ export const Single = () => {
 
 	return (
 		<div className="jumbotron align-items-center">
-			{/* <h1 className="display-4">This will show the demo element: {params.theid}</h1> */}
 			<CharacterDetailsCard />
-			{/* <hr className="my-4" /> */}
-			
 
-
-			<Link to="/">
-				<span className="btn btn-primary btn-lg" href="#" role="button">
+			{/* <Link to="/">
+				<span className="btn btn-primary btn-lg m-5" href="#" role="button">
 					Back home
 				</span>
-			</Link>
+			</Link> */}
 		</div>
 	);
 };
 
-Single.propTypes = {
+SingleCharacter.propTypes = {
 	match: PropTypes.object
 };
