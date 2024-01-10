@@ -58,7 +58,7 @@ export const CharacterCard = props => {
                             Learn more!
                         </Link>
                     </button>
-                    <button type="button" className="btn btn-outline-warning p-3 btn-sm m-3" onMouseEnter={handleHoverInButtonFav} onMouseLeave={handleHoverOutButtonFav}>
+                    <button type="button" className="btn btn-outline-warning p-3 btn-sm m-3" onMouseEnter={handleHoverInButtonFav} onMouseLeave={handleHoverOutButtonFav} onClick={() => actions.addToFavoritesCharacter(props.name)}>
                         <i className={`fa fa-heart text-warning ${styleFavoriteButton} ${styleHeart}`}></i>
                     </button>
                 </div>

@@ -26,9 +26,9 @@ export const Home = () => {
 		<div className="container-fluid">
 			<div className="row">
 				<h2 className="text-danger mx-4 p-3">Characters</h2>
-				<ul className="d-flex flex-row flex-nowrap overflow-scroll list-unstyled gap-1 mx-0 px-0">
+				<ul className="d-flex flex-row flex-nowrap overflow-scroll list-unstyled gap-3 px-0 mx-5">
 					{store.characters.map(character => (
-						<li className="col-4 mx-5 px-0 w-auto my-2" key={character.uid}>
+						<li className="col-4 px-0 w-auto my-2" key={character.uid}>
 							<CharacterCard
 								id={character.uid}
 								name={character.name}
@@ -42,9 +42,9 @@ export const Home = () => {
 			</div>
 			<div className="row">
 				<h2 className="text-danger mx-4 p-3">Planets</h2>
-				<ul className="d-flex flex-row flex-nowrap overflow-scroll list-unstyled gap-1 mx-0 px-0">
+				<ul className="d-flex flex-row flex-nowrap overflow-scroll list-unstyled gap-3 px-0 mx-5">
 					{store.planets.map(planet => (
-						<li className="col-4 mx-5 px-0 w-auto my-2" key={planet.uid}>
+						<li className="col-4 px-0 w-auto my-2" key={planet.uid}>
 							<PlanetCard
 								id={planet.uid}
 								name={planet.name}

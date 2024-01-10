@@ -28,7 +28,7 @@ export const CharacterDetailsCard = props => {
                     </div>
                 </div>
             </div>
-                <hr className="my-4 bg-danger fs-1" />
+            <hr className="my-4 bg-danger fs-1" />
             <div className="col-12 d-flex flex-row justify-content-around text-danger">
                 <div>
                     <h6>Name</h6>

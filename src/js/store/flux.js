@@ -1,3 +1,6 @@
+import { element } from "prop-types";
+import { useState } from "react";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -5,7 +8,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			characters: [],
 			characterDetails: {},
 			planets: [],
-			planetDetails: {}
+			planetDetails: {},
+			favorites: []
 		},
 
 		actions: {
@@ -70,6 +74,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch((error) => console.log(error));
 			},
+
+			addToFavoritesCharacter: (characterName) => {
+				// Al clicar al corazón se activará AddToFavorites.
+				// Cuando le de al click el id se guardara y se dibujará en el navbar y se añadira a array favorites 
+
+				// Setea el array favorites añadiendole el characterName de donde cliqueemos
+				setStore({ favorites: [...getStore().favorites, characterName] });
+				// Hacer un if ( si el charactername esta dentro del array no sumarlo.)
+				if (characterName = getStore().favorites[])
+				// Hay que añadir el elemento al array vacio en cuestion.
+				// Para poder ver que hay en favorites
+				// console.log(getStore().favorites);
+			}
 		},
 
 		loadSomeData: () => {
