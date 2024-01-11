@@ -6,6 +6,7 @@ import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { SingleCharacter } from "./views/SingleCharacter";
 import { SinglePlanet } from "./views/SinglePlanet";
+import { SingleVehicle } from "./views/SingleVehicle";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -30,7 +31,7 @@ const Layout = () => {
 						<Route path="/demo" element={<Demo />} />
 						<Route path="/characters/:theid" element={<SingleCharacter />} />
 						<Route path="/planets/:theid" element={<SinglePlanet />} />
-						{/* <Route path="/vehicles/:theid" element={<Vehicles />} /> */}
+						<Route path="/vehicles/:theid" element={<SingleVehicle />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 
 					</Routes>

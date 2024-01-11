@@ -9,6 +9,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			characterDetails: {},
 			planets: [],
 			planetDetails: {},
+			vehicles: [],
+			vehicleDetails: {},
 			favorites: []
 		},
 
@@ -75,16 +77,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch((error) => console.log(error));
 			},
 
-			addToFavoritesCharacter: (characterName) => {
-				// Al clicar al corazón se activará AddToFavorites.
-				// Cuando le de al click el id se guardara y se dibujará en el navbar y se añadira a array favorites 
+			getVehicles: () => {
+				fetch("https://www.swapi.tech/api/vehicles/")
+					.then((response) => {
+						// console.log(response);
+						return response.json();
+					})
+					.then((data) => {
+						// console.log(data);
+						// En el Store modificamos el valor de character a data.results(la respuesta)
+						setStore({ vehicles: data.results });
+					})
+					.catch((error) => console.log(error));
 
+			},
+
+
+			addToFavorites: (favoriteName) => {
+				// Al clicar al corazón se activará AddToFavorites.
+				// Cuando le de al click el name se añadirá al array favorites. y se dibujará en el navbar
 				// Setea el array favorites añadiendole el characterName de donde cliqueemos
-				setStore({ favorites: [...getStore().favorites, characterName] });
-				// Hacer un if ( si el charactername esta dentro del array no sumarlo.)
-				if (characterName = getStore().favorites[])
-				// Hay que añadir el elemento al array vacio en cuestion.
-				// Para poder ver que hay en favorites
+				// Cambiamos el store el array, añadimos el characterName al array favorites si esta incluido ya no se añade mas veces.
+
+				if (!getStore().favorites.includes(favoriteName)) {
+					setStore({ favorites: [...getStore().favorites, favoriteName] });
+				}
 				// console.log(getStore().favorites);
 			}
 		},

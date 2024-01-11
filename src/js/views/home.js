@@ -4,6 +4,7 @@ import { Context } from "../store/appContext.js";
 import "../../styles/home.css";
 import CharacterCard from "../component/characterCard.js";
 import PlanetCard from "../component/planetCard.js";
+import VehicleCard from "../component/vehicleCard.js";
 
 
 export const Home = () => {
@@ -19,6 +20,7 @@ export const Home = () => {
 	useEffect(() => {
 		actions.getCharacters();
 		actions.getPlanets();
+		actions.getVehicles();
 	}, []);
 	// En el useEffect al recargar la pagina apareceran los characters, planets, etc que queramos que aparezcan en la vista home.
 
@@ -48,6 +50,22 @@ export const Home = () => {
 							<PlanetCard
 								id={planet.uid}
 								name={planet.name}
+							/>
+							{/* Hacemos un map del espacio del store que es characters y ponemos como key la uid (en la respuesta la id sale como uid)
+								A Character, como solo queremos que aparezca el nombre y que guarde el ID le pasamos esas propiedades id y name
+								Para poder usarlas en CharacterCard */}
+						</li>
+					))}
+				</ul >
+			</div>
+			<div className="row">
+				<h2 className="text-danger mx-4 p-3">Vehicles</h2>
+				<ul className="d-flex flex-row flex-nowrap overflow-scroll list-unstyled gap-3 px-0 mx-5">
+					{store.vehicles.map(vehicle => (
+						<li className="col-4 px-0 w-auto my-2" key={vehicle.uid}>
+							<VehicleCard
+								id={vehicle.uid}
+								name={vehicle.name}
 							/>
 							{/* Hacemos un map del espacio del store que es characters y ponemos como key la uid (en la respuesta la id sale como uid)
 								A Character, como solo queremos que aparezca el nombre y que guarde el ID le pasamos esas propiedades id y name
