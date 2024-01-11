@@ -39,7 +39,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then((data) => {
-						console.log(data);
+						// console.log(data);
 						// en Store cambiamos valor characterDetails a lo que queramos acceder, en este caso las propiedades.
 						// Utilizamos result? porque es un objeto muy grande y puede darnos error, si ponemos el interrogante antes de la propiedad del objeto a la que quereamos acceder no dará error. Hacemos esto cuando sabemos a ciencia cierta que esa propiedad existe.
 						setStore({ characterDetails: data.result?.properties });
@@ -65,11 +65,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getPlanetDetails: (planetId) => {
 				fetch(`https://www.swapi.tech/api/planets/${planetId}`)
 					.then((response) => {
-						console.log(response);
+						// console.log(response);
 						return response.json();
 					})
 					.then((data) => {
-						console.log(data);
+						// console.log(data);
 						// en Store cambiamos valor characterDetails a lo que queramos acceder, en este caso las propiedades.
 						// Utilizamos result? porque es un objeto muy grande y puede darnos error, si ponemos el interrogante antes de la propiedad del objeto a la que quereamos acceder no dará error. Hacemos esto cuando sabemos a ciencia cierta que esa propiedad existe.
 						setStore({ planetDetails: data.result?.properties });
@@ -92,6 +92,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 
+			getVehicleDetails: (vehicleId) => {
+				fetch(`https://www.swapi.tech/api/vehicles/${vehicleId}`)
+					.then((response) => {
+						// console.log(response);
+						return response.json();
+					})
+					.then((data) => {
+						console.log(data);
+						// en Store cambiamos valor characterDetails a lo que queramos acceder, en este caso las propiedades.
+						// Utilizamos result? porque es un objeto muy grande y puede darnos error, si ponemos el interrogante antes de la propiedad del objeto a la que quereamos acceder no dará error. Hacemos esto cuando sabemos a ciencia cierta que esa propiedad existe.
+						setStore({ vehicleDetails: data.result?.properties });
+					})
+					.catch((error) => console.log(error));
+			},
 
 			addToFavorites: (favoriteName) => {
 				// Al clicar al corazón se activará AddToFavorites.

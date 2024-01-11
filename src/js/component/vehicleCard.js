@@ -60,7 +60,7 @@ export const VehicleCard = props => {
                 </div>
                 <div className="d-flex justify-content-between align-items-center">
                     <button type="button" className="btn btn-sm btn-outline-info m-3" onMouseEnter={handleHoverInButton} onMouseLeave={handleHoverOutButton}>
-                        <Link className={`btn text-info ${styleTextButtonLearnMore}`} to={`/characters/${props.id}`}>
+                        <Link className={`btn text-info ${styleTextButtonLearnMore}`} to={`/vehicles/${props.id}`}>
                             Learn more!
                         </Link>
                     </button>

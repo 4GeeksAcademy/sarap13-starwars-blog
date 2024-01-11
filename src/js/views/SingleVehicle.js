@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext.js";
-import { VehicleCard } from "../component/vehicleCard.js";
+import { VehicleDetailsCard } from "../component/VehicleDetailsCard.js";
 
 export const SingleVehicle = () => {
 	const { store, actions } = useContext(Context);
@@ -12,7 +12,7 @@ export const SingleVehicle = () => {
 	console.log(params.theid)
 
 	useEffect(() => {
-		actions.getPlanetDetails(params.theid)
+		actions.getVehicleDetails(params.theid)
 		// Envias a la función la parte que coge la url dinamica y se lo pasas al flux como parametro.
 
 	}, [])
