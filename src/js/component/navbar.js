@@ -11,6 +11,8 @@ export const Navbar = () => {
 
 	const { store, actions } = useContext(Context)
 
+	let favoritesCounter = store.favorites.length;
+
 	return (
 		<div className="container-fluid p-0">
 			<nav className="navbar navbar-light bg-light mb-3">
@@ -19,13 +21,21 @@ export const Navbar = () => {
 				</Link>
 				<div className="">
 					<Link to="/demo">
-						<div className="btn-group" role="group">
-							<button id="btnGroupDrop1" type="button" className="btn btn-primary dropdown-toggle mx-3" data-bs-toggle="dropdown" aria-expanded="false">
-								Favoritos
+						<div className="btn-group align-items-center" role="group">
+							<button id="btnGroupDrop1" type="button" className="btn btn-primary dropdown-toggle mx-3 d-flex flex-row align-items-center" data-bs-toggle="dropdown" aria-expanded="false">
+								<div className="d-flex flex-row align-items-center justify-content-between">
+									<p className="mx-1">Favorites</p>
+									<p className="me-2 bg-danger rounded-circle px-1">{favoritesCounter}</p>
+								</div>
 							</button>
-							<ul className="dropdown-menu" aria-labelledby="btnGroupDrop1">
+							<ul className="dropdown-menu dropdown-menu-end" aria-labelledby="btnGroupDrop1">
 								{store.favorites.map((item, index) => (
-									<li key={index} ><a className="dropdown-item" href="#">{item}</a></li>
+									<div className="d-flex flex-row dropdown-item align-items-center justify-content-between">
+										<li key={index} ><a className="align-self-start text-reset text-decoration-none" href="#">{item}</a></li>
+										<button key={index} className="btn">
+											<i key={index} className="fa fa-heart"></i>
+										</button>
+									</div>
 								))}
 							</ul>
 						</div>
