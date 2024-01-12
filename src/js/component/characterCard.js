@@ -54,7 +54,7 @@ export const CharacterCard = props => {
     return (
         <div className="card border" style={{ width: "20rem" }}>
             <div className="row">
-                <img className="card-img-top img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO5nblTqlj3f5khrzV7hcM6YwJ7gGcG2kShQ&usqp=CAU" alt="Cambiar SRC" />
+                <img className="card-img-top img-fluid w-100 h-25" src={`https://starwars-visualguide.com/assets/img/characters/${props.id}.jpg`} alt="Cambiar SRC" />
                 <div className="card-body mx-2">
                     <h5 className="card-title font-weight-bold">{props.name}</h5>
                     <p className="card-text mb-1">Gender: {props.gender}</p>

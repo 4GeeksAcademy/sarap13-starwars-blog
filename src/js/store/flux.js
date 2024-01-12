@@ -112,11 +112,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 				// Cuando le de al click el name se añadirá al array favorites. y se dibujará en el navbar
 				// Setea el array favorites añadiendole el characterName de donde cliqueemos
 				// Cambiamos el store el array, añadimos el characterName al array favorites si esta incluido ya no se añade mas veces.
-
 				if (!getStore().favorites.includes(favoriteName)) {
 					setStore({ favorites: [...getStore().favorites, favoriteName] });
 				}
 				// console.log(getStore().favorites);
+			},
+
+			deleteFromFavorites: (favoriteElementToDelete) => {
+				// Queremos que cuando le de al icon trash del navbar se elimine de favoritos.
+				// Se hace un filter en el favorites del store que coja el indice que crea un array con los elementos que no sean iguales a 
+				// favoriteElementToDelete
+				setStore({ favorites: getStore().favorites.filter((index) => index !== favoriteElementToDelete) }
+				);
+
 			}
 		},
 
