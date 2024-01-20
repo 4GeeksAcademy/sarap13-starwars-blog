@@ -68,7 +68,7 @@ export const VehicleCard = props => {
     return (
         <div className="card border" style={{ width: "20rem" }}>
             <div className="row">
-                <img className="card-img-top img-fluid w-100" src={`https://starwars-visualguide.com/assets/img/vehicles/${props.id}.jpg`} alt="Cambiar SRC" />
+                <img className="card-img-top img-fluid w-100 resizeImgVehicle" src={`https://starwars-visualguide.com/assets/img/vehicles/${props.id}.jpg`} alt="Cambiar SRC" />
                 <div className="card-body mx-2">
                     <h5 className="card-title font-weight-bold">{props.name}</h5>
                 </div>

@@ -48,7 +48,7 @@ export const PlanetCard = props => {
         setStyleHeart(`fa-star text-white`)
     }
 
-     // Hacemos el useEffect para que cuando cambie store.favorites se tenga en cuenta si el elemento está incluido,
+    // Hacemos el useEffect para que cuando cambie store.favorites se tenga en cuenta si el elemento está incluido,
     // si está incluido se quedarán los estilos del boton clicado, si no se desclicará el botón
     useEffect(() => {
         const isFavorite = store.favorites.includes(props.name)
@@ -69,11 +69,10 @@ export const PlanetCard = props => {
     return (
         <div className="card border" style={{ width: "20rem" }}>
             <div className="row">
-                <img className="card-img-top img-fluid w-100" src={`https://starwars-visualguide.com/assets/img/planets/${props.id}.jpg`} alt="Cambiar SRC" />
+                <img className="card-img-top img-fluid w-100 resizeImgPlanet" src={`https://starwars-visualguide.com/assets/img/planets/${props.id}.jpg`} alt={props.name} onError={(e) => e.target.src = "https://static.wikia.nocookie.net/esstarwars/images/b/b0/Tatooine_TPM.png/revision/latest?cb=20131214162357"}/> 
+                {/* //onError es para cuando la direccion de error, aparecerá esta otra IMG. Recuerda función flecha con el evento como param en todos los eventos. El target es para selecionar en este caso la src del target(img) */}
                 <div className="card-body mx-2">
                     <h5 className="card-title font-weight-bold">{props.name}</h5>
-                    <p className="card-text mb-1">Population: {props.gender}</p>
-                    <p className="card-text ">Terrain: {props.hair_color}</p>
                 </div>
                 <div className="d-flex justify-content-between align-items-center">
                     <button type="button" className="btn btn-sm btn-outline-info m-3" onMouseEnter={handleHoverInButton} onMouseLeave={handleHoverOutButton}>

@@ -62,18 +62,15 @@ export const CharacterCard = props => {
             setfavIsClicked(false)
         }
     }, [store.favorites]) //Cada vez que cambie store.favorites se ejecutará el useEffect.
- 
+
     // const params = useParams();
 
     return (
         <div className="card border" style={{ width: "20rem" }}>
             <div className="row">
-                <img className="card-img-top img-fluid w-100 h-25" src={`https://starwars-visualguide.com/assets/img/characters/${props.id}.jpg`} alt="Cambiar SRC" />
+                <img className="card-img-top img-fluid w-100 resizeImgCharacter" src={`https://starwars-visualguide.com/assets/img/characters/${props.id}.jpg`} alt="Cambiar SRC" />
                 <div className="card-body mx-2">
                     <h5 className="card-title font-weight-bold">{props.name}</h5>
-                    <p className="card-text mb-1">Gender: {props.gender}</p>
-                    <p className="card-text mb-1">Hair Color: {props.hair_color}</p>
-                    <p className="card-text">Eye-color: {props.eye_color}</p>
                 </div>
                 <div className="d-flex justify-content-between align-items-center">
                     <button type="button" className="btn btn-sm m-3 btn-outline-info" onMouseEnter={handleHoverInButton} onMouseLeave={handleHoverOutButton}>
