@@ -123,6 +123,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				// Se hace un filter en el favorites del store que coja el indice que crea un array con los elementos que no sean iguales a 
 				// favoriteElementToDelete
 				setStore({ favorites: getStore().favorites.filter((index) => index !== favoriteElementToDelete) }
+				// Queremos que cuando eliminemos el elemento de fav el botón de la card se desclique 
 				);
 
 			}

@@ -48,7 +48,21 @@ export const CharacterCard = props => {
         setStyleHeart(`fa-star text-white`)
     }
 
-    // console.log(props.id)
+    // Hacemos el useEffect para que cuando cambie store.favorites se tenga en cuenta si el elemento está incluido,
+    // si está incluido se quedarán los estilos del boton clicado, si no se desclicará el botón
+    useEffect(() => {
+        const isFavorite = store.favorites.includes(props.name)
+
+        if (isFavorite) {
+            setstyleFavoriteButton("btn-warning");
+            setStyleHeart(`fa-star text-white`)
+        } else {
+            setstyleFavoriteButton("btn-outline-warning")
+            setStyleHeart("")
+            setfavIsClicked(false)
+        }
+    }, [store.favorites]) //Cada vez que cambie store.favorites se ejecutará el useEffect.
+ 
     // const params = useParams();
 
     return (
@@ -67,7 +81,7 @@ export const CharacterCard = props => {
                             Learn more!
                         </Link>
                     </button>
-                    <button type="button" className={`btn ${styleFavoriteButton} p-3 btn-sm m-3`} onMouseEnter={handleHoverInButtonFav} onMouseLeave={handleHoverOutButtonFav} onClick={() => { actions.addToFavorites(props.name); handleClickFavButton(); }}>
+                    <button type="button" className={`btn ${styleFavoriteButton} p-3 btn-sm m-3 `} onMouseEnter={handleHoverInButtonFav} onMouseLeave={handleHoverOutButtonFav} onClick={() => { actions.addToFavorites(props.name); handleClickFavButton(); }}>
                         <i className={`fa fa-heart ${styleHeart}`}></i>
                     </button>
                 </div>

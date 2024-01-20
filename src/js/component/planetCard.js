@@ -48,6 +48,20 @@ export const PlanetCard = props => {
         setStyleHeart(`fa-star text-white`)
     }
 
+     // Hacemos el useEffect para que cuando cambie store.favorites se tenga en cuenta si el elemento está incluido,
+    // si está incluido se quedarán los estilos del boton clicado, si no se desclicará el botón
+    useEffect(() => {
+        const isFavorite = store.favorites.includes(props.name)
+
+        if (isFavorite) {
+            setstyleFavoriteButton("btn-warning");
+            setStyleHeart(`fa-star text-white`)
+        } else {
+            setstyleFavoriteButton("btn-outline-warning")
+            setStyleHeart("")
+            setfavIsClicked(false)
+        }
+    }, [store.favorites]) //Cada vez que cambie store.favorites se ejecutará el useEffect.
 
     // console.log(props.id)
     // const params = useParams();
@@ -55,7 +69,7 @@ export const PlanetCard = props => {
     return (
         <div className="card border" style={{ width: "20rem" }}>
             <div className="row">
-                <img className="card-img-top img-fluid w-100" src="https://i.ebayimg.com/images/g/MdUAAOSwc49Y7XC6/s-l400.jpg" alt="Cambiar SRC" />
+                <img className="card-img-top img-fluid w-100" src={`https://starwars-visualguide.com/assets/img/planets/${props.id}.jpg`} alt="Cambiar SRC" />
                 <div className="card-body mx-2">
                     <h5 className="card-title font-weight-bold">{props.name}</h5>
                     <p className="card-text mb-1">Population: {props.gender}</p>
