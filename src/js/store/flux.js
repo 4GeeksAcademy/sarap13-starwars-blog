@@ -42,7 +42,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 						// console.log(data);
 						// en Store cambiamos valor characterDetails a lo que queramos acceder, en este caso las propiedades.
 						// Utilizamos result? porque es un objeto muy grande y puede darnos error, si ponemos el interrogante antes de la propiedad del objeto a la que quereamos acceder no dará error. Hacemos esto cuando sabemos a ciencia cierta que esa propiedad existe.
-						setStore({ characterDetails: data.result?.properties });
+						// creamos una constante para añadirle el id y poder pasarselo a la detaisCard, así podemos en el img poner
+						// el id actual para añadir la foto.
+						const characterDetailsWithId = {
+							...data.result?.properties,
+							characterId: characterId
+						};
+						setStore({ characterDetails: characterDetailsWithId });
 					})
 					.catch((error) => console.log(error));
 			},
@@ -123,7 +129,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				// Se hace un filter en el favorites del store que coja el indice que crea un array con los elementos que no sean iguales a 
 				// favoriteElementToDelete
 				setStore({ favorites: getStore().favorites.filter((index) => index !== favoriteElementToDelete) }
-				// Queremos que cuando eliminemos el elemento de fav el botón de la card se desclique 
+					// Queremos que cuando eliminemos el elemento de fav el botón de la card se desclique 
 				);
 
 			}
