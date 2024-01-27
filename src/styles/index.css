@@ -1,8 +1,34 @@
 /* 
     General Styles
 */
-/* body {
-    background-image: url(https://lumiere-a.akamaihd.net/v1/images/star-wars-backgrounds-14_856985d9.jpeg?download=true);
-    background-size: cover;
-    background-repeat: no-repeat;
-} */
+body {
+    background-image: url(https://png.pngtree.com/background/20220716/original/pngtree-pure-original-dream-black-and-white-galaxy-sky-background-picture-image_1644180.jpg);
+    background-position: center;
+    background-repeat: repeat; 
+    background-size:cover;
+    position: relative;
+    overflow:auto;
+    overflow-x: hidden;
+    /* font-family: 'Codystar', sans-serif; */
+    /* font-family: 'Playpen Sans', cursive; */
+    font-family: 'Black Ops One', system-ui;
+}
+
+.navbar{
+    z-index: 1000;
+    background: transparent !important;
+    /* color: white !important; */
+    /* font-family: andromeda; */
+    /* font-size: 24px; */
+}
+
+.neon-shadow {
+    text-shadow: 0 0 30px white , 0 0 30px white;
+}
+
+.box-shadow {
+    box-shadow: 0 0 40px white;
+}
+
+.card-background-opacity {
+}

@@ -48,34 +48,36 @@ export const Navbar = () => {
 	}
 
 	return (
-		<div className="container-fluid p-0">
-			<nav className="navbar navbar-light bg-light mb-3">
-				<Link to="/">
-					<img className="card-img-top mx-5" src="https://visualpharm.com/assets/195/Star%20Wars-595b40b85ba036ed117de471.svg" />
-				</Link>
-				<div className="">
-					<Link to="/demo">
-						<div className="btn-group align-items-center" role="group">
-							<button id="btnGroupDrop1" type="button" className="btn btn-primary dropdown-toggle mx-3 d-flex flex-row align-items-center" data-bs-toggle="dropdown" aria-expanded="false">
-								<div className="d-flex flex-row align-items-center justify-content-between">
-									<p className="mx-1 mb-0">Favorites</p>
-									<p className=" bg-danger rounded-circle px-1 mb-0">{favoritesCounter}</p>
-								</div>
-							</button>
-							<ul className="dropdown-menu dropdown-menu-end" aria-labelledby="btnGroupDrop1">
-								{store.favorites.map((item, index) => (
-									// <div  className="  ">
-									<li key={index}> <Link to={() => getUrl(item)} className="dropdown-item d-flex flex-row align-items-center justify-content-between">
-										<p className="text-reset text-decoration-none align-self-center mb-0">{item}</p>
-										<button className="btn" onClick={() => actions.deleteFromFavorites(item)}>
-											<i className="fa fa-trash"></i>
-										</button></Link>
-									</li>
-									// /* // </div> */ }
-								))}
-							</ul>
-						</div>
+		<div className="container-fluid p-0 mt-3">
+			<nav className="navbar mb-5 ">
+				<div className="d-flex flex-row">
+					<Link to="/">
+						<img className="card-img-top mx-5 w-25 h-auto" src="https://assets.stickpng.com/images/602176580ad3230004b93c22.png" />
 					</Link>
+					<div className="mx-5 d-flex align-items-center">
+						<Link to="/demo">
+							<div className="btn-group align-items-center" role="group">
+								<button id="btnGroupDrop1" type="button" className="btn btn-light rounded-pill dropdown-toggle mx-3 d-flex flex-row align-items-center box-shadow" data-bs-toggle="dropdown" aria-expanded="false">
+									<div className="d-flex flex-row align-items-center justify-content-between">
+										<p className="mx-1 mb-0 fs-5">FAVORITES</p>
+										<p className=" bg-dark rounded-circle px-1 mb-0 text-light">{favoritesCounter}</p>
+									</div>
+								</button>
+								<ul className="dropdown-menu dropdown-menu-end" aria-labelledby="btnGroupDrop1">
+									{store.favorites.map((item, index) => (
+										// <div  className="  ">
+										<li key={index}> <Link to={() => getUrl(item)} className="dropdown-item d-flex flex-row align-items-center justify-content-between">
+											<p className="text-reset text-decoration-none align-self-center mb-0">{item}</p>
+											<button className="btn" onClick={() => actions.deleteFromFavorites(item)}>
+												<i className="fa fa-trash"></i>
+											</button></Link>
+										</li>
+										// /* // </div> */ }
+									))}
+								</ul>
+							</div>
+						</Link>
+					</div>
 				</div>
 
 			</nav >
