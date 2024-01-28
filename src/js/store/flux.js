@@ -78,7 +78,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 						// console.log(data);
 						// en Store cambiamos valor characterDetails a lo que queramos acceder, en este caso las propiedades.
 						// Utilizamos result? porque es un objeto muy grande y puede darnos error, si ponemos el interrogante antes de la propiedad del objeto a la que quereamos acceder no dará error. Hacemos esto cuando sabemos a ciencia cierta que esa propiedad existe.
-						setStore({ planetDetails: data.result?.properties });
+						const planetDetailsWithId = {
+							...data.result?.properties,
+							planetId: planetId
+						};
+						setStore({ planetDetails: planetDetailsWithId });
 					})
 					.catch((error) => console.log(error));
 			},

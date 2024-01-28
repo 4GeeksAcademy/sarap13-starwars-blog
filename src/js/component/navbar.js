@@ -51,8 +51,8 @@ export const Navbar = () => {
 		<div className="container-fluid p-0 mt-3">
 			<nav className="navbar mb-5 ">
 				<div className="d-flex flex-row">
-					<Link to="/">
-						<img className="card-img-top mx-5 w-25 h-auto" src="https://assets.stickpng.com/images/602176580ad3230004b93c22.png" />
+					<Link className="" to="/">
+						<img className="card-img-top mx-5 w-25 h-auto starwars-button-navbar" src="https://assets.stickpng.com/images/602176580ad3230004b93c22.png" />
 					</Link>
 					<div className="mx-5 d-flex align-items-center">
 						<Link to="/demo">
