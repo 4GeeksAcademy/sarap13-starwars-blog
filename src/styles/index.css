@@ -30,7 +30,16 @@ body {
     width: 50% !important;
 }
 
-/* .resize-card-details-img {
-    height: 300px;
-    width: 250px;
-} */
+.resize-card-details-character-img {
+    max-width: 100%;
+    height: auto;
+}
+
+.resize-card-details-planet-img {
+    max-width: 100%;
+    height: 100%;
+}
+
+.sizeDetailsCard {
+    max-width: 900px;
+}

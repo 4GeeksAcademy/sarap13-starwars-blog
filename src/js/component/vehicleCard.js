@@ -78,7 +78,7 @@ export const VehicleCard = props => {
                             Learn more!
                         </Link>
                     </button>
-                    <button type="button" className={`btn ${styleFavoriteButton} p-3 btn-sm m-3 box-shadow rounded-circle`} onMouseEnter={handleHoverInButtonFav} onMouseLeave={handleHoverOutButtonFav} onClick={() => { actions.addToFavorites(props.name); handleClickFavButton(); }}>
+                    <button type="button" className={`btn ${styleFavoriteButton} p-3 btn-sm m-3 box-shadow rounded-circle`} onMouseEnter={handleHoverInButtonFav} onMouseLeave={handleHoverOutButtonFav} onClick={() => { actions.addToFavorites(props.name, props.id, "vehicles"); handleClickFavButton(); }}>
                         {/* La clase que cambia el boton se añade en el boton y particular el color de texto y el icono en el i */}
                         <i className={`fa fa-heart ${styleHeart}`}></i>
                     </button>

@@ -80,7 +80,7 @@ export const PlanetCard = props => {
                             Learn more!
                         </Link>
                     </button>
-                    <button type="button" className={`btn ${styleFavoriteButton} p-3 btn-sm m-3 box-shadow rounded-circle`} onMouseEnter={handleHoverInButtonFav} onMouseLeave={handleHoverOutButtonFav} onClick={() => { actions.addToFavorites(props.name); handleClickFavButton(); }}>
+                    <button type="button" className={`btn ${styleFavoriteButton} p-3 btn-sm m-3 box-shadow rounded-circle`} onMouseEnter={handleHoverInButtonFav} onMouseLeave={handleHoverOutButtonFav} onClick={() => { actions.addToFavorites(props.name, props.id, "planets"); handleClickFavButton(); }}>
                         <i className={`fa fa-heart ${styleHeart}`}></i>
                     </button>
                 </div>

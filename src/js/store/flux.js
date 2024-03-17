@@ -117,22 +117,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch((error) => console.log(error));
 			},
 
-			addToFavorites: (favoriteName) => {
+			addToFavorites: (favoriteName, favoriteId, favoriteType) => {
 				// Al clicar al corazón se activará AddToFavorites.
-				// Cuando le de al click el name se añadirá al array favorites. y se dibujará en el navbar
-				// Setea el array favorites añadiendole el characterName de donde cliqueemos
-				// Cambiamos el store el array, añadimos el characterName al array favorites si esta incluido ya no se añade mas veces.
-				if (!getStore().favorites.includes(favoriteName)) {
-					setStore({ favorites: [...getStore().favorites, favoriteName] });
+				// Cuando le de al click el name, id y type se añadirá al array favorites. y se dibujará en el navbar
+				// Setea el array favorites añadiendole el favoriteName de donde cliqueemos
+				// Cambiamos el store el array, añadimos el  al array favorites si esta incluido ya no se añade mas veces.
+				// Si el array es 0 añadir el objeto con el nombre, id y tipo que usaremos en el navbar para linkear los elementos
+				let favoritesAdded = getStore().favorites.filter((item) => item.name == favoriteName)
+				if (favoritesAdded.length === 0) {
+					setStore({ favorites: [...getStore().favorites, { name: favoriteName, favoriteId: favoriteId, type: favoriteType }] })
 				}
-				// console.log(getStore().favorites);
 			},
 
 			deleteFromFavorites: (favoriteElementToDelete) => {
 				// Queremos que cuando le de al icon trash del navbar se elimine de favoritos.
 				// Se hace un filter en el favorites del store que coja el indice que crea un array con los elementos que no sean iguales a 
 				// favoriteElementToDelete
-				setStore({ favorites: getStore().favorites.filter((index) => index !== favoriteElementToDelete) }
+				setStore({ favorites: getStore().favorites.filter((i, _) => i.name !== favoriteElementToDelete) }
 					// Queremos que cuando eliminemos el elemento de fav el botón de la card se desclique 
 				);
 
