@@ -71,11 +71,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getPlanetDetails: (planetId) => {
 				fetch(`https://www.swapi.tech/api/planets/${planetId}`)
 					.then((response) => {
-						// console.log(response);
 						return response.json();
 					})
 					.then((data) => {
-						// console.log(data);
 						// en Store cambiamos valor characterDetails a lo que queramos acceder, en este caso las propiedades.
 						// Utilizamos result? porque es un objeto muy grande y puede darnos error, si ponemos el interrogante antes de la propiedad del objeto a la que quereamos acceder no dará error. Hacemos esto cuando sabemos a ciencia cierta que esa propiedad existe.
 						const planetDetailsWithId = {
@@ -105,14 +103,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getVehicleDetails: (vehicleId) => {
 				fetch(`https://www.swapi.tech/api/vehicles/${vehicleId}`)
 					.then((response) => {
-						// console.log(response);
 						return response.json();
 					})
 					.then((data) => {
 						console.log(data);
 						// en Store cambiamos valor characterDetails a lo que queramos acceder, en este caso las propiedades.
 						// Utilizamos result? porque es un objeto muy grande y puede darnos error, si ponemos el interrogante antes de la propiedad del objeto a la que quereamos acceder no dará error. Hacemos esto cuando sabemos a ciencia cierta que esa propiedad existe.
-						setStore({ vehicleDetails: data.result?.properties });
+
+						const vehicleDetailsWithId = {
+							...data.result?.properties,
+							vehicleId: vehicleId
+						};
+						setStore({ vehicleDetails: vehicleDetailsWithId });
 					})
 					.catch((error) => console.log(error));
 			},
@@ -129,13 +131,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			deleteFromFavorites: (favoriteElementToDelete) => {
+			deleteFromFavorites: (favoriteElementToDelete, favoriteIdToDelete) => {
 				// Queremos que cuando le de al icon trash del navbar se elimine de favoritos.
 				// Se hace un filter en el favorites del store que coja el indice que crea un array con los elementos que no sean iguales a 
 				// favoriteElementToDelete
-				setStore({ favorites: getStore().favorites.filter((i, _) => i.name !== favoriteElementToDelete) }
+				setStore({ favorites: getStore().favorites.filter((i, _) => i.name !== favoriteElementToDelete || item.favoriteId !== favoriteIdToDelete) }
 					// Queremos que cuando eliminemos el elemento de fav el botón de la card se desclique 
 				);
+				// resetFavoriteButton()
 
 			}
 		},

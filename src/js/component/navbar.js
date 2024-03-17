@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext.js";
 
-export const Navbar = ({ favorites }) => {
+export const Navbar = ({ favorites, resetFavoriteButton }) => {
 
 	const [state, setState] = useState({
 		//initialize state here
@@ -19,7 +19,7 @@ export const Navbar = ({ favorites }) => {
 			<nav className="navbar mb-5 ">
 				<div className="d-flex flex-row align-items-between">
 					<Link className="w-5" to="/">
-						<img className="card-img-top mx-4 img-fluid logo-small d-none d-md-block" src="https://assets.stickpng.com/images/602176580ad3230004b93c22.png" style={{ width: "15%"}}/>
+						<img className="card-img-top mx-4 img-fluid logo-small d-none d-md-block" src="https://assets.stickpng.com/images/602176580ad3230004b93c22.png" style={{ width: "15%" }} />
 						<img className="card-img-top mx-4 img-fluid logo-large d-md-none" src="https://assets.stickpng.com/images/602176580ad3230004b93c22.png" />
 					</Link>
 					<div className="mx-4 d-flex align-items-center">
@@ -34,8 +34,8 @@ export const Navbar = ({ favorites }) => {
 								<ul className="dropdown-menu dropdown-menu-end" aria-labelledby="btnGroupDrop1">
 									{store.favorites.length > 0 && store.favorites.map((item, index) => (
 										// <div  className="  ">
-										<li key={index}> <Link to={`${item.type}/${item.favoriteId}`}>
-											<p className="text-reset text-decoration-none align-self-center mb-0">{item.name}</p></Link>
+										<li className="text-decoration-none text-dark d-flex flex-row align-items-center px-2" key={index}> <Link className="text-decoration-none text-dark" to={`${item.type}/${item.favoriteId}`}>
+											<p className="text-reset align-self-center mb-0">{item.name}</p></Link>
 											<button className="btn" onClick={(event) => { event.preventDefault(); actions.deleteFromFavorites(item.name); }}>
 												<i className="fa fa-trash"></i>
 											</button>

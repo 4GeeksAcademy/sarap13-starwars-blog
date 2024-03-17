@@ -9,7 +9,7 @@ export const SingleVehicle = () => {
 
 	// Creamos un espacio para guardar los params de la ruta creada.
 	const params = useParams();
-	console.log(params.theid)
+	// console.log(params.theid)
 
 	useEffect(() => {
 		actions.getVehicleDetails(params.theid)
@@ -18,14 +18,8 @@ export const SingleVehicle = () => {
 	}, [])
 
 	return (
-		<div className="jumbotron align-items-center">
+		<div className="jumbotron align-items-center min-vh-100">
 			<VehicleDetailsCard />
-
-			{/* <Link to="/">
-				<span className="btn btn-primary btn-lg m-5" href="#" role="button">
-					Back home
-				</span>
-			</Link> */}
 		</div>
 	);
 };

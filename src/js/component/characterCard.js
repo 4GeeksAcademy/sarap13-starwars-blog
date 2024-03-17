@@ -45,8 +45,17 @@ export const CharacterCard = props => {
     const handleClickFavButton = () => {
         setfavIsClicked(true);
         setstyleFavoriteButton("btn-dark");
-        setStyleHeart(`fa-star text-warning`)
+        setStyleHeart(`fa-star text-warning`);
+        actions.addToFavorites(props.name, props.id, "characters");
+        {/* Le pasamos el nombre id y tipo escrito en "" en este caso characters a la función addToFavorites */ }
+
     }
+
+    // const resetFavoriteButton = () => {
+    //     setfavIsClicked(false);
+    //     setstyleFavoriteButton("btn-outline-dark");
+    //     setStyleHeart("");
+    // };
 
     // Hacemos el useEffect para que cuando cambie store.favorites se tenga en cuenta si el elemento está incluido,
     // si está incluido se quedarán los estilos del boton clicado, si no se desclicará el botón
@@ -61,6 +70,7 @@ export const CharacterCard = props => {
             setStyleHeart("")
             setfavIsClicked(false)
         }
+        
     }, [store.favorites]) //Cada vez que cambie store.favorites se ejecutará el useEffect.
 
     // const params = useParams();
@@ -78,14 +88,12 @@ export const CharacterCard = props => {
                             Learn more!
                         </Link>
                     </button>
-                    <button type="button" className={`btn ${styleFavoriteButton} p-3 btn-sm m-3 box-shadow rounded-circle`} onMouseEnter={handleHoverInButtonFav} onMouseLeave={handleHoverOutButtonFav} onClick={() => { actions.addToFavorites(props.name, props.id, "characters"); handleClickFavButton(); }}>
-                        {/* Le pasamos el nombre id y tipo escrito en "" en este caso characters a la función addToFavorites */}
-                        <i className={`fa fa-heart ${styleHeart}`}></i>
+                    <button type="button" className={`btn ${styleFavoriteButton} p-3 btn-sm m-3 box-shadow rounded-circle`} onMouseEnter={handleHoverInButtonFav} onMouseLeave={handleHoverOutButtonFav} onClick={handleClickFavButton}>
+                        <i className={`fa ${styleHeart} ${favIsClicked ? "fa-star text-warning" : "fa-heart"}`}></i>
                     </button>
                 </div>
             </div>
         </div>
-
     );
 };
 

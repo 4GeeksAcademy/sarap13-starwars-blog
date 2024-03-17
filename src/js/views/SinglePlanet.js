@@ -9,7 +9,7 @@ export const SinglePlanet = () => {
 
 	// Creamos un espacio para guardar los params de la ruta creada.
 	const params = useParams();
-	console.log(params.theid)
+	// console.log(params.theid)
 
 	useEffect(() => {
 		actions.getPlanetDetails(params.theid)
@@ -20,12 +20,6 @@ export const SinglePlanet = () => {
 	return (
 		<div className="jumbotron align-items-center">
 			<PlanetDetailsCard />
-
-			{/* <Link to="/">
-				<span className="btn btn-primary btn-lg m-5" href="#" role="button">
-					Back home
-				</span>
-			</Link> */}
 		</div>
 	);
 };
